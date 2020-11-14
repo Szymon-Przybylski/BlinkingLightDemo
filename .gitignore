@@ -72,19 +72,3 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-.gitignore
-.idea/.idea.BlinkingLightDemo/.idea/.gitignore
-.idea/.idea.BlinkingLightDemo/.idea/codeStyles/
-.idea/.idea.BlinkingLightDemo/.idea/indexLayout.xml
-.idea/.idea.BlinkingLightDemo/.idea/misc.xml
-.idea/.idea.BlinkingLightDemo/.idea/vcs.xml
-.idea/.idea.BlinkingLightDemo/riderModule.iml
-Assembly-CSharp.csproj
-Assets/
-BlinkingLightDemo.sln
-Library/
-Logs/
-Packages/
-ProjectSettings/
-Temp/
-obj/
