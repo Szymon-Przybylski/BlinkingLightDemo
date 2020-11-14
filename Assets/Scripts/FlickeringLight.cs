@@ -18,16 +18,4 @@ public class FlickeringLight : MonoBehaviour
             _lampLight.enabled = !_lampLight.enabled;
         }
     }
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.name != "Player") return;
-        _lampLight.enabled = !_lampLight.enabled;
-    }
-    private void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.name != "Player") return;
-        if (_lampLight.enabled) return;
-        _lampLight.enabled = true;
-    }
-
 }
