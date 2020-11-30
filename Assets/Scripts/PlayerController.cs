@@ -1,16 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Interactable
 {
     [SerializeField] private Transform playerCamera;
     
-    [SerializeField] private bool isGameShowcaseSetup = false;
-
     private CharacterController _characterController;
 
     private float _cameraPitch;
@@ -22,12 +21,7 @@ public class PlayerController : MonoBehaviour
 
         _cameraPitch = 0.0f;
         _movementSpeed = 6.0f;
-
-        if (isGameShowcaseSetup)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        
     }
     private void Update()
     {
@@ -38,6 +32,7 @@ public class PlayerController : MonoBehaviour
             ExitGameOnEscapeKeyPress();
         }
     }
+
     private void UpdateCameraOnMouseLook()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -60,4 +55,5 @@ public class PlayerController : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }
