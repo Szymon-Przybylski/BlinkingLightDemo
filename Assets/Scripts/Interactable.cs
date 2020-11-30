@@ -9,7 +9,6 @@ public class Interactable : MonoBehaviour
 
     public virtual bool CanInteract(Collider col)
     {
-        if (!Input.GetKeyDown(KeyCode.E)) return false;
         GameObject collidingObject = col.gameObject;
         float distance = Vector3.Distance(transform.position, collidingObject.transform.position);
         return distance < minimumDistance;

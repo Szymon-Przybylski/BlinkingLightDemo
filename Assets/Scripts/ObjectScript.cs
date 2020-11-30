@@ -12,7 +12,6 @@ public class ObjectScript : Interactable
 
     public override bool CanInteract(Collider col)
     {
-        Debug.Log("called CanInteract");
         return base.CanInteract(col);
     }
     

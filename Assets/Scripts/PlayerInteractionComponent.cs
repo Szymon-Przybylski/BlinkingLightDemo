@@ -16,6 +16,8 @@ public class PlayerInteractionComponent : Interactable
     private float _cameraPitch;
     private float _movementSpeed;
 
+    private bool isAbleToInteract = false;
+
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -60,10 +62,17 @@ public class PlayerInteractionComponent : Interactable
     private void OnTriggerStay(Collider collider)
     {
         _interactableObject = collider.GetComponent<ObjectScript>();
-        if (_interactableObject.CanInteract(collider))
+        isAbleToInteract = _interactableObject.CanInteract(collider);
+        if (!isAbleToInteract) return;
+        if (Input.GetKeyDown(KeyCode.E))
         {
             InteractWithInteractable();
         }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        isAbleToInteract = false;
     }
 
     private void InteractWithInteractable()
