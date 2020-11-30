@@ -11,7 +11,7 @@ public class PlayerInteractionComponent : Interactable
     [SerializeField] private Transform playerCamera;
 
     private CharacterController _characterController;
-    private ObjectScript _objectScript;
+    private ObjectScript _interactableObject;
 
     private float _cameraPitch;
     private float _movementSpeed;
@@ -59,8 +59,8 @@ public class PlayerInteractionComponent : Interactable
 
     private void OnTriggerStay(Collider collider)
     {
-        _objectScript = collider.GetComponent<ObjectScript>();
-        if (_objectScript.CanInteract(collider))
+        _interactableObject = collider.GetComponent<ObjectScript>();
+        if (_interactableObject.CanInteract(collider))
         {
             InteractWithInteractable();
         }
@@ -68,7 +68,7 @@ public class PlayerInteractionComponent : Interactable
 
     private void InteractWithInteractable()
     {
-        _objectScript.Interact();
+        _interactableObject.Interact();
         Debug.Log("interacted from player");
     }
     
