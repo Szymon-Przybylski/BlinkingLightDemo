@@ -7,16 +7,17 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private float minimumDistance = 20.0f;
 
-    protected bool CanInteract(Collider col)
+    public virtual bool CanInteract(Collider col)
     {
+        if (!Input.GetKeyDown(KeyCode.E)) return false;
         GameObject collidingObject = col.gameObject;
         float distance = Vector3.Distance(transform.position, collidingObject.transform.position);
         return distance < minimumDistance;
     }
 
-    protected virtual void Interact()
+    public virtual void Interact()
     {
-
+    
     }
     
 }

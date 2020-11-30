@@ -6,11 +6,12 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class PlayerController : Interactable
+public class PlayerInteractionComponent : Interactable
 {
     [SerializeField] private Transform playerCamera;
-    
+
     private CharacterController _characterController;
+    private ObjectScript _objectScript;
 
     private float _cameraPitch;
     private float _movementSpeed;
@@ -55,5 +56,21 @@ public class PlayerController : Interactable
     {
         Application.Quit();
     }
+
+    private void OnTriggerStay(Collider collider)
+    {
+        _objectScript = collider.GetComponent<ObjectScript>();
+        if (_objectScript.CanInteract(collider))
+        {
+            InteractWithInteractable();
+        }
+    }
+
+    private void InteractWithInteractable()
+    {
+        _objectScript.Interact();
+        Debug.Log("interacted from player");
+    }
+    
     
 }
